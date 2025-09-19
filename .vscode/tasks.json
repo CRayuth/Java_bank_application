@@ -1,0 +1,202 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "compile java without maven",
+            "type": "shell",
+            "command": "javac",
+            "args": [
+                "-cp", "javafx-sdk-25/lib/*;lib/*",
+                "-d", "target/classes",
+                "--module-path", "javafx-sdk-25/lib",
+                "--add-modules", "javafx.controls,javafx.fxml",
+                "--add-exports", "javafx.base/com.sun.javafx.runtime=ALL-UNNAMED",
+                "src/main/java/bank/application/*.java",
+                "src/main/java/bank/application/Controller/*.java",
+                "src/main/java/model/*.java",
+                "src/main/java/database/*.java",
+                "src/main/java/utility/*.java"
+            ],
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "problemMatcher": "$javac",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "dependsOn": ["create target directory", "copy resources"]
+        },
+        {
+            "label": "create target directory",
+            "type": "shell",
+            "command": "cmd",
+            "args": ["/c", "if not exist target\\classes mkdir target\\classes"],
+            "group": "build",
+            "presentation": {
+                "echo": false,
+                "reveal": "silent",
+                "focus": false,
+                "panel": "shared"
+            },
+            "options": {
+                "cwd": "${workspaceFolder}"
+            }
+        },
+        {
+            "label": "copy resources",
+            "type": "shell",
+            "command": "cmd",
+            "args": ["/c", "if exist src\\main\\resource xcopy src\\main\\resource target\\classes /E /I /Y >nul 2>&1"],
+            "group": "build",
+            "presentation": {
+                "echo": false,
+                "reveal": "silent",
+                "focus": false,
+                "panel": "shared"
+            },
+            "options": {
+                "cwd": "${workspaceFolder}"
+            }
+        },
+        {
+            "label": "maven: compile",
+            "type": "shell",
+            "command": "mvn",
+            "args": ["compile"],
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "problemMatcher": "$javac",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            }
+        },
+        {
+            "label": "maven: clean compile",
+            "type": "shell",
+            "command": "mvn",
+            "args": ["clean", "compile"],
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "problemMatcher": "$javac",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            }
+        },
+        {
+            "label": "maven: run javafx",
+            "type": "shell",
+            "command": "mvn",
+            "args": ["javafx:run"],
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "dependsOn": "maven: compile",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            }
+        },
+        {
+            "label": "setup database",
+            "type": "shell",
+            "command": "mysql",
+            "args": ["-u", "root", "-p", "<", "database_setup.sql"],
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "options": {
+                "cwd": "${workspaceFolder}"
+            }
+        },
+        {
+            "label": "run with local javafx",
+            "type": "shell",
+            "command": "java",
+            "args": [
+                "--module-path", "javafx-sdk-25/lib",
+                "--add-modules", "javafx.controls,javafx.fxml",
+                "--add-opens", "javafx.fxml/javafx.fxml=ALL-UNNAMED",
+                "-cp", "target/classes;javafx-sdk-25/lib/*;lib/*",
+                "bank.application.App"
+            ],
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "dependsOn": "compile java without maven",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            }
+        },
+        {
+            "label": "setup dependencies",
+            "type": "shell",
+            "command": "powershell",
+            "args": ["-ExecutionPolicy", "Bypass", "-File", "setup_dependencies.ps1"],
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "options": {
+                "cwd": "${workspaceFolder}"
+            }
+        },
+        {
+            "label": "setup dependencies (batch)",
+            "type": "shell",
+            "command": "setup_dependencies.bat",
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "options": {
+                "cwd": "${workspaceFolder}"
+            }
+        },
+        {
+            "label": "system check",
+            "type": "shell",
+            "command": "system_check.bat",
+            "group": "test",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": true,
+                "panel": "shared"
+            },
+            "options": {
+                "cwd": "${workspaceFolder}"
+            }
+        }
+    ]
+}

@@ -1,0 +1,20 @@
+module bank.application {
+    requires javafx.controls;
+    requires javafx.fxml;
+    // requires com.jfoenix;  // JFoenix as automatic module
+    // requires de.jensd.fx.glyphs.fontawesome;  // FontAwesome as automatic module
+    // requires org.controlsfx.controls;  // ControlsFX as automatic module
+    requires java.sql;  // Re-enabled for SQL classes even in mock mode
+    requires java.desktop;
+    requires java.logging;
+    
+    exports bank.application;
+    exports bank.application.Controller;
+    exports model;
+    exports database;
+    exports utility;
+    
+    opens bank.application to javafx.fxml, javafx.base;
+    opens bank.application.Controller to javafx.fxml, javafx.base;
+    opens model to javafx.fxml;
+}

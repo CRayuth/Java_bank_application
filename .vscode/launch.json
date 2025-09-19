@@ -1,0 +1,80 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "RaBoth Banking App",
+            "request": "launch",
+            "mainClass": "bank.application.App",
+            "projectName": "myawesomeapp",
+            "args": [],
+            "vmArgs": [
+                "--module-path",
+                "${workspaceFolder}/javafx-sdk-25/lib",
+                "--add-modules",
+                "javafx.controls,javafx.fxml",
+                "--add-opens",
+                "javafx.fxml/javafx.fxml=ALL-UNNAMED",
+                "--add-exports",
+                "javafx.base/com.sun.javafx.runtime=ALL-UNNAMED",
+                "-Djava.util.logging.config.file=${workspaceFolder}/src/main/resource/logging.properties"
+            ],
+            "classpath": [
+                "${workspaceFolder}/target/classes",
+                "${workspaceFolder}/javafx-sdk-25/lib/*",
+                "${workspaceFolder}/lib/jfoenix-17-0.1.1.jar",
+                "${workspaceFolder}/lib/junit-4.13.2.jar"
+            ],
+            "env": {
+                "JAVAFX_HOME": "${workspaceFolder}/javafx-sdk-25"
+            },
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            "preLaunchTask": "compile java without maven"
+        },
+        {
+            "type": "java",
+            "name": "RaBoth Banking App (Debug)",
+            "request": "launch",
+            "mainClass": "bank.application.App",
+            "projectName": "myawesomeapp",
+            "args": "",
+            "vmArgs": [
+                "--module-path",
+                "${workspaceFolder}/javafx-sdk-25/lib",
+                "--add-modules",
+                "javafx.controls,javafx.fxml",
+                "--add-opens",
+                "javafx.fxml/javafx.fxml=ALL-UNNAMED",
+                "--add-exports",
+                "javafx.base/com.sun.javafx.runtime=ALL-UNNAMED",
+                "-Djava.util.logging.config.file=src/main/resource/logging.properties"
+            ],
+            "env": {
+                "JAVAFX_HOME": "${workspaceFolder}/javafx-sdk-25"
+            },
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            "preLaunchTask": "maven: compile"
+        },
+        {
+            "type": "java",
+            "name": "RaBoth Banking App (Alternative JavaFX Path)",
+            "request": "launch",
+            "mainClass": "bank.application.App",
+            "projectName": "myawesomeapp",
+            "args": "",
+            "vmArgs": [
+                "--module-path",
+                "${workspaceFolder}/javafx-sdk-25/lib",
+                "--add-modules",
+                "javafx.controls,javafx.fxml",
+                "--add-opens",
+                "javafx.fxml/javafx.fxml=ALL-UNNAMED"
+            ],
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            "preLaunchTask": "maven: compile"
+        }
+    ]
+}
