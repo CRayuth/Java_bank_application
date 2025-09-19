@@ -22,7 +22,7 @@
          <children>
             <Pane layoutX="20.0" layoutY="124.0" opacity="0.23" prefHeight="238.0" prefWidth="372.0" style="-fx-background-color: #050608; -fx-background-radius: 30;" />
             <Pane layoutX="19.0" layoutY="129.0" prefHeight="228.0" prefWidth="362.0" style="-fx-background-color: #050608; -fx-background-radius: 30;" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="129.0" />
-            <Button layoutX="86.0" layoutY="118.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="View Profile &gt;" textFill="#eeeeee" AnchorPane.topAnchor="50.0" />
+            <Button layoutX="86.0" layoutY="118.0" mnemonicParsing="false" onAction="#goToProfile" style="-fx-background-color: transparent;" text="View Profile &gt;" textFill="#eeeeee" AnchorPane.topAnchor="50.0" />
             <Separator layoutX="5.0" layoutY="108.0" prefWidth="200.0" style="-fx-background-color: #302870;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="105.0" />
             <Label fx:id="accountName" layoutX="94.0" layoutY="101.0" text="Hello, User!" textFill="#eeeeee" AnchorPane.topAnchor="35.0">
                <font>

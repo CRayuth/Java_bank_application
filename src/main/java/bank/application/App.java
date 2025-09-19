@@ -40,10 +40,10 @@ public class App extends Application {
             
             // Configure stage
             stage.setResizable(false);
-            stage.setTitle("RaBoth Banking Application");
+            stage.setTitle("YuthDommy Bank");
             stage.show();
             
-            System.out.println("RaBoth Banking Application started successfully!");
+            System.out.println("YuthDommy Bank started successfully!");
             System.out.println("Running in Demo Mode - Use phone='demo', password='demo' to login");
             
         } catch (Exception e) {
@@ -56,7 +56,7 @@ public class App extends Application {
         try {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Application Error");
-            alert.setHeaderText("Failed to start RaBoth Banking Application");
+            alert.setHeaderText("Failed to start YuthDommy Bank");
             alert.setContentText(message);
             alert.showAndWait();
         } catch (Exception e) {
@@ -67,7 +67,7 @@ public class App extends Application {
     }
 
     public static void main(String[] args) {
-        System.out.println("Starting RaBoth Banking Application...");
+        System.out.println("Starting YuthDommy Bank...");
         System.out.println("JavaFX Version: " + System.getProperty("javafx.version"));
         System.out.println("Java Version: " + System.getProperty("java.version"));
         launch(args);

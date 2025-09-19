@@ -3,7 +3,7 @@
     "configurations": [
         {
             "type": "java",
-            "name": "RaBoth Banking App",
+            "name": "YuthDommy Bank App",
             "request": "launch",
             "mainClass": "bank.application.App",
             "projectName": "myawesomeapp",
@@ -34,7 +34,7 @@
         },
         {
             "type": "java",
-            "name": "RaBoth Banking App (Debug)",
+            "name": "YuthDommy Bank App (Debug)",
             "request": "launch",
             "mainClass": "bank.application.App",
             "projectName": "myawesomeapp",
@@ -59,7 +59,7 @@
         },
         {
             "type": "java",
-            "name": "RaBoth Banking App (Alternative JavaFX Path)",
+            "name": "YuthDommy Bank App (Alternative JavaFX Path)",
             "request": "launch",
             "mainClass": "bank.application.App",
             "projectName": "myawesomeapp",

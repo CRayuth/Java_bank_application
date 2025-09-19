@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="817.0" prefWidth="412.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bank.application.Controller.UserProfileController">
+   <children>
+      <!-- Main Profile Screen -->
+      <AnchorPane fx:id="profileMainPane" prefHeight="817.0" prefWidth="412.0" style="-fx-background-color: linear-gradient(to bottom, #f8f9fa, #e9ecef);" stylesheets="@../css/application.css">
+         <children>
+            <!-- Header with back button -->
+            <HBox alignment="CENTER_LEFT" layoutY="20.0" prefHeight="60.0" prefWidth="412.0" spacing="15.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0">
+               <children>
+                  <JFXButton fx:id="backButton" onAction="#backToMain" style="-fx-text-fill: #1d1d1f; -fx-background-color: transparent; -fx-font-size: 16px; -fx-font-weight: 500;" text="← Back">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </JFXButton>
+                  <Label style="-fx-text-fill: #1d1d1f; -fx-font-size: 22px; -fx-font-weight: 600;" text="Profile" />
+               </children>
+            </HBox>
+
+            <!-- Profile Image Section -->
+            <VBox alignment="CENTER" layoutX="106.0" layoutY="100.0" prefHeight="200.0" prefWidth="200.0" spacing="20.0" AnchorPane.leftAnchor="106.0" AnchorPane.rightAnchor="106.0" AnchorPane.topAnchor="100.0">
+               <children>
+                  <!-- Profile Image Container -->
+                  <AnchorPane prefHeight="120.0" prefWidth="120.0">
+                     <children>
+                        <Circle fill="#ffffff" radius="60.0" stroke="#e5e5e7" strokeWidth="2.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0" />
+                        <ImageView fx:id="profileImageView" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" AnchorPane.bottomAnchor="10.0">
+                           <image>
+                              <Image url="@/images/user-profile.png" />
+                           </image>
+                        </ImageView>
+                        <!-- Edit Profile Image Button -->
+                        <JFXButton fx:id="editImageButton" onAction="#editProfileImage" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: #007aff; -fx-background-radius: 15; -fx-text-fill: white; -fx-font-size: 12px;" text="✎" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="5.0">
+                           <effect>
+                              <DropShadow color="#00000040" height="6.0" radius="3.0" width="6.0" />
+                           </effect>
+                        </JFXButton>
+                     </children>
+                  </AnchorPane>
+
+                  <!-- User Name and Details -->
+                  <VBox alignment="CENTER" spacing="8.0">
+                     <children>
+                        <Label fx:id="userFullName" style="-fx-text-fill: #1d1d1f; -fx-font-size: 24px; -fx-font-weight: 600;" text="John Doe" />
+                        <Label fx:id="userEmail" style="-fx-text-fill: #86868b; -fx-font-size: 16px;" text="john.doe@example.com" />
+                        <Label fx:id="userPhone" style="-fx-text-fill: #86868b; -fx-font-size: 14px;" text="+1 (555) 123-4567" />
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+
+            <!-- Profile Options -->
+            <VBox layoutX="30.0" layoutY="320.0" prefHeight="300.0" prefWidth="352.0" spacing="20.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="320.0">
+               <children>
+                  <!-- My Profile Button -->
+                  <JFXButton fx:id="myProfileButton" onAction="#goToMyProfile" prefHeight="60.0" prefWidth="352.0" style="-fx-background-color: #ffffff; -fx-background-radius: 12; -fx-text-fill: #1d1d1f; -fx-font-size: 16px; -fx-font-weight: 500; -fx-alignment: CENTER_LEFT; -fx-padding: 0 20 0 20;">
+                     <graphic>
+                        <HBox alignment="CENTER_LEFT" prefWidth="300.0" spacing="15.0">
+                           <children>
+                              <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@/images/user-profile.png" />
+                                 </image>
+                              </ImageView>
+                              <Label style="-fx-text-fill: #1d1d1f; -fx-font-size: 16px; -fx-font-weight: 500;" text="My Profile" />
+                              <Label style="-fx-text-fill: #86868b; -fx-font-size: 14px;" text="Personal information" />
+                              <Label style="-fx-text-fill: #86868b; -fx-font-size: 16px; -fx-font-weight: 300;" text="›" HBox.hgrow="ALWAYS" />
+                           </children>
+                        </HBox>
+                     </graphic>
+                     <effect>
+                        <DropShadow color="#00000010" height="4.0" radius="2.0" width="4.0" />
+                     </effect>
+                  </JFXButton>
+
+                  <!-- Security Button -->
+                  <JFXButton fx:id="securityButton" onAction="#goToSecurity" prefHeight="60.0" prefWidth="352.0" style="-fx-background-color: #ffffff; -fx-background-radius: 12; -fx-text-fill: #1d1d1f; -fx-font-size: 16px; -fx-font-weight: 500; -fx-alignment: CENTER_LEFT; -fx-padding: 0 20 0 20;">
+                     <graphic>
+                        <HBox alignment="CENTER_LEFT" prefWidth="300.0" spacing="15.0">
+                           <children>
+                              <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@/images/cvv.png" />
+                                 </image>
+                              </ImageView>
+                              <Label style="-fx-text-fill: #1d1d1f; -fx-font-size: 16px; -fx-font-weight: 500;" text="Security" />
+                              <Label style="-fx-text-fill: #86868b; -fx-font-size: 14px;" text="Password &amp; privacy" />
+                              <Label style="-fx-text-fill: #86868b; -fx-font-size: 16px; -fx-font-weight: 300;" text="›" HBox.hgrow="ALWAYS" />
+                           </children>
+                        </HBox>
+                     </graphic>
+                     <effect>
+                        <DropShadow color="#00000010" height="4.0" radius="2.0" width="4.0" />
+                     </effect>
+                  </JFXButton>
+
+                  <!-- Developer Button -->
+                  <JFXButton fx:id="developerButton" onAction="#goToDeveloper" prefHeight="60.0" prefWidth="352.0" style="-fx-background-color: #ffffff; -fx-background-radius: 12; -fx-text-fill: #1d1d1f; -fx-font-size: 16px; -fx-font-weight: 500; -fx-alignment: CENTER_LEFT; -fx-padding: 0 20 0 20;">
+                     <graphic>
+                        <HBox alignment="CENTER_LEFT" prefWidth="300.0" spacing="15.0">
+                           <children>
+                              <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@/images/transfer.png" />
+                                 </image>
+                              </ImageView>
+                              <Label style="-fx-text-fill: #1d1d1f; -fx-font-size: 16px; -fx-font-weight: 500;" text="Developer" />
+                              <Label style="-fx-text-fill: #86868b; -fx-font-size: 14px;" text="App info &amp; settings" />
+                              <Label style="-fx-text-fill: #86868b; -fx-font-size: 16px; -fx-font-weight: 300;" text="›" HBox.hgrow="ALWAYS" />
+                           </children>
+                        </HBox>
+                     </graphic>
+                     <effect>
+                        <DropShadow color="#00000010" height="4.0" radius="2.0" width="4.0" />
+                     </effect>
+                  </JFXButton>
+               </children>
+            </VBox>
+
+            <!-- Bottom Actions -->
+            <VBox layoutX="30.0" layoutY="650.0" prefHeight="120.0" prefWidth="352.0" spacing="15.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.bottomAnchor="47.0">
+               <children>
+                  <Separator style="-fx-background-color: #d2d2d7;" />
+                  <HBox alignment="CENTER" spacing="20.0">
+                     <children>
+                        <JFXButton fx:id="updateProfileButton" onAction="#updateProfile" style="-fx-background-color: #007aff; -fx-background-radius: 8; -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: 500; -fx-padding: 12 24 12 24;" text="Update Profile" />
+                        <JFXButton fx:id="deleteProfileButton" onAction="#deleteProfile" style="-fx-background-color: #ff3b30; -fx-background-radius: 8; -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: 500; -fx-padding: 12 24 12 24;" text="Delete Account" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+
+      <!-- My Profile Detail Pane -->
+      <AnchorPane fx:id="myProfilePane" prefHeight="817.0" prefWidth="412.0" style="-fx-background-color: linear-gradient(to bottom, #f8f9fa, #e9ecef);" visible="false">
+         <children>
+            <Label layoutX="150.0" layoutY="300.0" style="-fx-text-fill: #1d1d1f; -fx-font-size: 18px;" text="My Profile Details" />
+            <JFXButton layoutX="20.0" layoutY="20.0" onAction="#backToProfileMain" style="-fx-text-fill: #1d1d1f; -fx-background-color: transparent; -fx-font-size: 16px;" text="← Back" />
+         </children>
+      </AnchorPane>
+
+      <!-- Security Pane -->
+      <AnchorPane fx:id="securityPane" prefHeight="817.0" prefWidth="412.0" style="-fx-background-color: linear-gradient(to bottom, #f8f9fa, #e9ecef);" visible="false">
+         <children>
+            <Label layoutX="170.0" layoutY="300.0" style="-fx-text-fill: #1d1d1f; -fx-font-size: 18px;" text="Security Settings" />
+            <JFXButton layoutX="20.0" layoutY="20.0" onAction="#backToProfileMain" style="-fx-text-fill: #1d1d1f; -fx-background-color: transparent; -fx-font-size: 16px;" text="← Back" />
+         </children>
+      </AnchorPane>
+
+      <!-- Developer Pane -->
+      <AnchorPane fx:id="developerPane" prefHeight="817.0" prefWidth="412.0" style="-fx-background-color: linear-gradient(to bottom, #f8f9fa, #e9ecef);" visible="false">
+         <children>
+            <Label layoutX="150.0" layoutY="300.0" style="-fx-text-fill: #1d1d1f; -fx-font-size: 18px;" text="Developer Information" />
+            <JFXButton layoutX="20.0" layoutY="20.0" onAction="#backToProfileMain" style="-fx-text-fill: #1d1d1f; -fx-background-color: transparent; -fx-font-size: 16px;" text="← Back" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

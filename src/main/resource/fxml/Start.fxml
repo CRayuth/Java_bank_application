@@ -22,7 +22,7 @@
       <VBox layoutX="58.0" layoutY="597.0" prefHeight="58.0" prefWidth="325.0">
          <children>
             <Text fill="#959799" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Weŕe excited to have you on board. " wrappingWidth="214.08203125" />
-            <Text fill="#959799" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="To start banking with Raboth, please verify your identify." wrappingWidth="318.08203125" />
+            <Text fill="#959799" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="To start banking with YuthDommy Bank, please verify your identify." wrappingWidth="318.08203125" />
          </children>
       </VBox>
       <VBox layoutX="57.0" layoutY="465.0" prefHeight="120.0" prefWidth="298.0">
@@ -32,7 +32,7 @@
                   <Font size="40.0" />
                </font>
             </Label>
-            <Label styleClass="text" stylesheets="@../css/application.css" text="RaBoth ">
+            <Label styleClass="text" stylesheets="@../css/application.css" text="YuthDommy Bank ">
                <font>
                   <Font size="40.0" />
                </font>

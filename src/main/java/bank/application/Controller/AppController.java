@@ -1,5 +1,6 @@
 package bank.application.Controller;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,14 +8,20 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 import model.Bank;
 import utility.AlertUtil;
 
@@ -179,6 +186,23 @@ public class AppController implements Initializable {
     
     public void backFromCard() {
     	cardInfo.setVisible(false);
+    }
+    
+    /**
+     * Navigate to user profile screen
+     */
+    @FXML
+    public void goToProfile(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/fxml/UserProfile.fxml"));
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+            AlertUtil.showAlert("Error", "Failed to open profile screen.");
+        }
     }
     public void showCVV() {
     	cvvPane.setVisible(true);
